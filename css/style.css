@@ -208,6 +208,11 @@ a:hover {
     display: none;
   }
 }
+@media screen and (max-width: 1579px) {
+  .xl2-none {
+    display: none;
+  }
+}
 .btn {
   padding: 0.875rem 6.25rem;
   position: relative;
@@ -244,7 +249,7 @@ a:hover {
 
 .header {
   height: 7.5rem;
-  background-image: url(../../images/common/h-bgi.png);
+  background-image: url("../../images/common/h-bgi.png");
 }
 @media screen and (max-width: 767px) {
   .header {
@@ -834,7 +839,7 @@ a:hover {
 
 .commit__title.title__wrapper {
   position: absolute;
-  top: -15%;
+  top: -3%;
   right: 20%;
 }
 @media screen and (max-width: 1329px) {
@@ -844,9 +849,17 @@ a:hover {
 }
 @media screen and (max-width: 767px) {
   .commit__title.title__wrapper {
-    top: -29%;
+    top: -5%;
     right: 6%;
   }
+}
+
+.section-title__main.commit__title {
+  padding: 10px 0 60px;
+}
+
+.commit__title-sub.section-title__sub {
+  padding-top: 10px;
 }
 
 .commit-img {
@@ -877,15 +890,59 @@ a:hover {
 .commit__lists {
   margin-top: 140px;
 }
+@media screen and (max-width: 767px) {
+  .commit__lists {
+    margin-top: 80px;
+    position: relative;
+  }
+}
 
 .commit__list {
   display: flex; /* Flexboxレイアウトを有効にします。 */
   align-items: center; /* 中央揃えにします。 */
   justify-content: flex-end; /* 要素間に等間隔を設定し、画像を右端に配置します。 */
 }
+@media screen and (max-width: 767px) {
+  .commit__list {
+    flex-direction: column-reverse; /* 子要素を縦並びにし、画像がテキストよりも上に来るようにします */
+    justify-content: center; /* 中央揃えにします */
+    align-items: flex-end; /* 画像を右端に配置 */
+  }
+}
+
+.commit__list:nth-child(2) {
+  flex-direction: row-reverse; /* 子要素の順序を逆にして、テキストを右、画像を左に配置 */
+}
+@media screen and (max-width: 767px) {
+  .commit__list:nth-child(2) {
+    flex-direction: column-reverse; /* 子要素を縦並びにし、画像がテキストよりも上に来るようにします */
+    justify-content: center; /* 中央揃えにします */
+    align-items: flex-start; /* 画像を右端に配置 */
+  }
+}
+
+.commit__list:not(:first-child) {
+  margin-top: 160px;
+}
+@media screen and (max-width: 767px) {
+  .commit__list:not(:first-child) {
+    margin-top: 70px;
+  }
+}
 
 .commit__text-wrap {
   padding-right: 30px;
+}
+@media screen and (max-width: 767px) {
+  .commit__text-wrap {
+    padding-right: 0; /* モバイルビューでは右パディングをリセットします */
+    padding: 0 10px 0 25px;
+  }
+}
+
+.commit__text-wrap.commit__text-wrap-r {
+  padding-right: 0px;
+  padding-left: 30px;
 }
 
 .commit__list-img {
@@ -896,11 +953,45 @@ a:hover {
   height: auto; /* 高さを自動調整して、アスペクト比を保持します。 */
   object-fit: cover;
 }
+@media screen and (max-width: 767px) {
+  .commit__list-img {
+    max-width: 82%; /* モバイルビューでは画像の最大幅を調整することができます */
+  }
+}
 
 .commit__text-no {
   font-size: 3.125rem;
   font-family: "Radley";
   position: relative;
+}
+@media screen and (max-width: 767px) {
+  .commit__text-no {
+    font-size: 1.75rem;
+    position: absolute;
+    top: 0%;
+    left: 5%;
+  }
+}
+
+.commit__text-no.commit__text-no2 {
+  text-align: right;
+}
+@media screen and (max-width: 767px) {
+  .commit__text-no.commit__text-no2 {
+    font-size: 1.75rem;
+    position: absolute;
+    top: 34%;
+    right: 5%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .commit__text-no.commit__text-no3 {
+    font-size: 1.75rem;
+    position: absolute;
+    top: 70%;
+    left: 5%;
+  }
 }
 
 .commit__text-no::before {
@@ -912,6 +1003,29 @@ a:hover {
   position: absolute; /* 親要素に対して絶対位置指定 */
   top: 57%;
   left: 15%;
+}
+@media screen and (max-width: 767px) {
+  .commit__text-no::before {
+    width: 100px; /* 画像の幅 */
+    left: 150%;
+  }
+}
+
+.commit__text-no.commit__text-no2::before {
+  content: ""; /* 擬似要素にはcontentプロパティが必須 */
+  display: block; /* 画像のように扱うためにblockレベル要素に */
+  width: 120%; /* 画像の幅 */
+  height: 1px; /* 画像の高さ */
+  background-color: #fff; /* 背景色 */
+  position: absolute; /* 親要素に対して絶対位置指定 */
+  top: 57%;
+  left: -40%;
+}
+@media screen and (max-width: 767px) {
+  .commit__text-no.commit__text-no2::before {
+    width: 100px; /* 画像の幅 */
+    left: 63%;
+  }
 }
 
 .commit__text-large {
@@ -929,6 +1043,12 @@ a:hover {
   .commit__text-large {
     font-size: 2rem;
     margin-top: 2.1875rem;
+  }
+}
+@media screen and (max-width: 767px) {
+  .commit__text-large {
+    font-size: 1.875rem;
+    margin-top: 3.125rem;
   }
 }
 
@@ -950,4 +1070,97 @@ a:hover {
   }
 }
 
+
 /*# sourceMappingURL=style.css.map */
+@media screen and (max-width: 767px) {
+  .commit__text-small {
+    font-size: 1.1875rem;
+    margin-top: 2.1875rem;
+    line-height: 1.474;
+    letter-spacing: 0; /* 文字間隔を広げる */
+  }
+}
+
+.commit__img-large {
+  margin-top: 230px;
+}
+@media screen and (max-width: 767px) {
+  .commit__img-large {
+    margin-top: 90px;
+  }
+}
+
+.rv {
+  margin-top: 170px;
+  color: #fff;
+}
+
+.rv__text {
+  font-size: 1.5625rem;
+  line-height: 1.44;
+}
+@media screen and (max-width: 767px) {
+  .rv__text {
+    font-size: 1.1875rem;
+    line-height: 1.474;
+  }
+}
+
+.rv__btn-wrap {
+  text-align: center;
+}
+
+.works-list__item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.works-list__item + .works-list__item {
+  margin-top: 1.875rem;
+}
+
+.works-list__item-img {
+  max-width: 37.5rem;
+  margin-left: 50px;
+  position: relative;
+}
+@media screen and (max-width: 767px) {
+  .works-list__item-img {
+    width: 100%;
+  }
+}
+
+.works-list__item-img img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.works-list__item-text {
+  font-size: 1.5625rem;
+  line-height: 1.44;
+  margin-left: 5rem;
+  max-width: 37.5rem;
+  width: 100%;
+}
+@media screen and (max-width: 767px) {
+  .works-list__item-text {
+    margin-top: 0;
+    font-size: 1.1875rem;
+    line-height: 1.474;
+  }
+}
+
+.rv__title.title__wrapper {
+  position: absolute;
+  top: -11%;
+  left: 14%;
+}
+
+.rv__title.section-title__main {
+  padding: 10px 0 44px;
+}
+@media screen and (max-width: 1199px) {
+  .rv__title.section-title__main {
+    font-size: 2.1875rem;
+  }
