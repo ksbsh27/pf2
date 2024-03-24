@@ -46,7 +46,6 @@
   background: rgba(0, 0, 0, 0.16); /* 薄い黒色のマスク、透明度は調整可能 */
 }
 
-
 .about__text {
   position: relative;
   color: $white;
@@ -142,16 +141,16 @@
   padding-left: 25px;
   display: flex;
   flex-wrap: wrap; /* 必要に応じてアイテムを折り返すように設定 */
-  @include mq("md"){
+  @include mq("md") {
     flex-direction: column; /* フレックスアイテムを縦並びにする */
-  margin-top: 60px;
+    margin-top: 60px;
   }
 }
 
 .menu__img2 {
   max-width: 580px;
   flex: 0 1 50%; /* 成長しないが、必要に応じて縮小する。基本的には親の50%の幅 */
-  @include mq("md"){
+  @include mq("md") {
     max-width: 80%; /* スマホ表示では幅を100%に設定 */
     display: flex; /* Flexboxを有効にする */
     justify-content: center; /* 子要素を水平方向の中央に配置 */
@@ -169,9 +168,9 @@
   flex: 1; /* 残りのスペースを使って拡張する。マージンを調整してもよい */
   margin-left: 60px; /* 必要に応じて調整 */
   padding-top: 55px;
-  @include mq("md"){
+  @include mq("md") {
     margin-left: 0; /* 必要に応じて調整 */
-  padding-top: 50px;
+    padding-top: 50px;
   }
 }
 
@@ -179,16 +178,16 @@
   font-size: prem(50);
   line-height: 1.44;
   font-weight: 400;
-  @include mq("md"){
+  @include mq("md") {
     font-size: prem(30);
-  line-height: 1.433;
+    line-height: 1.433;
   }
 }
 .menu__text-small {
   margin-top: 37px;
   font-size: prem(25);
   line-height: 1.44;
-  @include mq("xl1"){
+  @include mq("xl1") {
     font-size: prem(21);
   }
 }
@@ -197,7 +196,7 @@
   display: flex; /* Flexboxを使用して中央揃えを実現 */
   justify-content: center; /* 水平方向の中央揃え */
   margin-top: 100px; /* 上のマージンを設定 */
-  @include mq("md"){
+  @include mq("md") {
     margin-top: 66px; /* 上のマージンを設定 */
   }
 }
@@ -214,16 +213,23 @@
 
 .commit__title.title__wrapper {
   position: absolute;
-  top: -15%;
+  top: -3%;
   right: 20%;
 
   @include mq("xl1") {
     top: -20%;
   }
   @include mq("md") {
-    top: -29%;
+    top: -5%;
     right: 6%;
   }
+}
+
+.section-title__main.commit__title {
+  padding: 10px 0 60px;
+}
+.commit__title-sub.section-title__sub {
+  padding-top: 10px;
 }
 
 .commit-img {
@@ -234,8 +240,8 @@
 .commit-img img {
   width: 90%;
   object-fit: cover;
-  @include mq("md"){
-width: 95%;
+  @include mq("md") {
+    width: 95%;
   }
 }
 
@@ -251,16 +257,54 @@ width: 95%;
 
 .commit__lists {
   margin-top: 140px;
+  @include mq("md") {
+    margin-top: 80px;
+    position: relative;
+  }
 }
 
 .commit__list {
   display: flex; /* Flexboxレイアウトを有効にします。 */
   align-items: center; /* 中央揃えにします。 */
   justify-content: flex-end; /* 要素間に等間隔を設定し、画像を右端に配置します。 */
+  @include mq("md") {
+    flex-direction: column-reverse; /* 子要素を縦並びにし、画像がテキストよりも上に来るようにします */
+    justify-content: center; /* 中央揃えにします */
+    align-items: flex-end; /* 画像を右端に配置 */
+  }
+}
+
+.commit__list:nth-child(2) {
+  flex-direction: row-reverse; /* 子要素の順序を逆にして、テキストを右、画像を左に配置 */
+  @include mq("md") {
+    flex-direction: column-reverse; /* 子要素を縦並びにし、画像がテキストよりも上に来るようにします */
+    justify-content: center; /* 中央揃えにします */
+    align-items: flex-start; /* 画像を右端に配置 */
+  }
+}
+
+.commit__list:not(:first-child) {
+  margin-top: 160px;
+  @include mq("md") {
+    margin-top: 70px;
+  }
 }
 
 .commit__text-wrap {
-padding-right: 30px;
+  padding-right: 30px;
+  @include mq("md") {
+    padding-right: 0; /* モバイルビューでは右パディングをリセットします */
+    padding: 0 10px 0 25px;
+  }
+}
+
+.commit__text-wrap.commit__text-wrap-r {
+  padding-right: 0px;
+  padding-left: 30px;
+  // @include mq("md"){
+  //   padding-right: 0; /* モバイルビューでは右パディングをリセットします */
+  //   padding: 0 10px 0 25px;
+  // }
 }
 
 .commit__list-img {
@@ -270,12 +314,40 @@ padding-right: 30px;
   width: 100%;
   height: auto; /* 高さを自動調整して、アスペクト比を保持します。 */
   object-fit: cover;
+  @include mq("md") {
+    max-width: 82%; /* モバイルビューでは画像の最大幅を調整することができます */
+  }
 }
 
 .commit__text-no {
   font-size: prem(50);
   font-family: "Radley";
   position: relative;
+  @include mq("md") {
+    font-size: prem(28);
+    position: absolute;
+    top: 0%;
+    left: 5%;
+  }
+}
+
+.commit__text-no.commit__text-no2 {
+  text-align: right;
+  @include mq("md") {
+    font-size: prem(28);
+    position: absolute;
+    top: 34%;
+    right: 5%;
+  }
+}
+
+.commit__text-no.commit__text-no3 {
+  @include mq("md") {
+    font-size: prem(28);
+    position: absolute;
+    top: 70%;
+    left: 5%;
+  }
 }
 
 .commit__text-no::before {
@@ -287,19 +359,41 @@ padding-right: 30px;
   position: absolute; /* 親要素に対して絶対位置指定 */
   top: 57%;
   left: 15%;
+  @include mq("md") {
+    width: 100px; /* 画像の幅 */
+    left: 150%;
+  }
+}
+.commit__text-no.commit__text-no2::before {
+  content: ""; /* 擬似要素にはcontentプロパティが必須 */
+  display: block; /* 画像のように扱うためにblockレベル要素に */
+  width: 120%; /* 画像の幅 */
+  height: 1px; /* 画像の高さ */
+  background-color: #fff; /* 背景色 */
+  position: absolute; /* 親要素に対して絶対位置指定 */
+  top: 57%;
+  left: -40%;
+  @include mq("md") {
+    width: 100px; /* 画像の幅 */
+    left: 63%;
+  }
 }
 
 .commit__text-large {
   font-size: prem(36);
   margin-top: prem(80);
   line-height: 1.444;
-  @include mq("xl2"){
+  @include mq("xl2") {
     font-size: prem(32);
-  margin-top: prem(70);
+    margin-top: prem(70);
   }
-  @include mq("xl1"){
+  @include mq("xl1") {
     font-size: prem(32);
-  margin-top: prem(35);
+    margin-top: prem(35);
+  }
+  @include mq("md") {
+    font-size: prem(30);
+    margin-top: prem(50);
   }
 }
 
@@ -307,12 +401,101 @@ padding-right: 30px;
   font-size: prem(25);
   margin-top: prem(55);
   line-height: 1.444;
-  @include mq("xl2"){
+  @include mq("xl2") {
     font-size: prem(21);
-  margin-top: prem(50);
+    margin-top: prem(50);
   }
-  @include mq("xl1"){
+  @include mq("xl1") {
     font-size: prem(21);
-  margin-top: prem(25);
+    margin-top: prem(25);
+  }
+  @include mq("md") {
+    font-size: prem(19);
+    margin-top: prem(35);
+    line-height: 1.474;
+    letter-spacing: 0; /* 文字間隔を広げる */
+  }
+}
+
+.commit__img-large {
+  margin-top: 230px;
+  @include mq("md") {
+    margin-top: 90px;
+  }
+}
+
+.rv {
+  margin-top: 170px;
+  color: $white;
+}
+
+.rv__text {
+  font-size: prem(25);
+  line-height: 1.44;
+  @include mq("md") {
+    font-size: prem(19);
+    line-height: 1.474;
+  }
+}
+
+
+.rv__btn-wrap {
+  text-align: center;
+}
+
+
+.works-list__item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include mq(md){
+  }
+}
+
+
+.works-list__item + .works-list__item {
+  margin-top: prem(30);
+}
+
+.works-list__item-img {
+    max-width: prem(600);
+    margin-left: 50px;
+  position: relative;
+  @include mq(md){
+  width: 100%;
+  }
+}
+
+.works-list__item-img img {
+  width: 100%;
+  // aspect-ratio: 550/420;
+  object-fit: cover;
+}
+
+.works-list__item-text {
+  // margin-top: prem(20);
+  font-size: prem(25);
+  line-height: 1.44;
+  // letter-spacing: 0.05em;
+  margin-left: prem(80);
+  max-width: prem(600);
+  width: 100%;
+  @include mq(md){
+      margin-top: 0;
+      font-size: prem(19);
+      line-height: 1.474;
+  }
+}
+
+.rv__title.title__wrapper {
+  position: absolute;
+  top: -11%;
+  left: 14%;
+}
+
+.rv__title.section-title__main {
+  padding: 10px 0 44px;
+  @include mq("xl"){
+    font-size: prem(35);
   }
 }
