@@ -49,8 +49,7 @@ body {
 
 /* A elements that don't have a class get default styles */
 a:not([class]) {
-  -webkit-text-decoration-skip: ink;
-          text-decoration-skip-ink: auto;
+  text-decoration-skip-ink: auto;
 }
 
 /* Make images easier to work with */
@@ -74,12 +73,10 @@ select {
     scroll-behavior: auto;
   }
   *,
-*::before,
-*::after {
-    -webkit-animation-duration: 0.01ms !important;
-            animation-duration: 0.01ms !important;
-    -webkit-animation-iteration-count: 1 !important;
-            animation-iteration-count: 1 !important;
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
@@ -177,6 +174,7 @@ a:hover {
   font-size: 3.125rem;
   padding-top: 20px;
   line-height: 1;
+  -ms-writing-mode: tb-rl;
   writing-mode: vertical-rl;
   z-index: 1;
 }
@@ -314,8 +312,7 @@ a:hover {
 .header__logo img {
   width: 100%;
   height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 
 .header__nav {
@@ -496,23 +493,58 @@ a:hover {
   text-align: center;
 }
 
-.mv__main-title {
-  font-size: 3.75rem;
-}
-@media screen and (max-width: 767px) {
-  .mv__main-title {
-    font-size: 2.5rem;
-  }
+.mv__title-items {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  grid-template-columns: 1fr 120px 60px 1fr;
+  grid-template-rows: repeat(3, 1fr);
+  column-gap: 24px;
+  row-gap: 32px;
 }
 
-.mv__sub-title {
-  margin-top: 1.25rem;
-  font-size: 2.1875rem;
+.mv__title-item:nth-of-type(1) {
+  grid-column: 2/3;
 }
-@media screen and (max-width: 767px) {
-  .mv__sub-title {
-    font-size: 1.25rem;
-  }
+
+.mv__title-item:nth-of-type(2) {
+  grid-column: 3/4;
+}
+
+.mv__title-item:nth-of-type(3) {
+  grid-column: 3/4;
+  grid-row: 2/3;
+}
+
+.mv__title-item:nth-of-type(4) {
+  grid-column: 2/3;
+  grid-row: 2/3;
+}
+
+.mv__title-item:nth-of-type(5) {
+  grid-column: 2/3;
+  grid-row: 3/4;
+}
+
+.mv__title-item:nth-of-type(2) {
+  align-self: end;
+}
+
+.mv__title-item:nth-of-type(3) {
+  align-self: self-start;
+}
+
+.mv__title-item:nth-of-type(2) .mv__title-img,
+.mv__title-item:nth-of-type(3) .mv__title-img {
+  width: 60px;
+  height: 60px;
+}
+
+.mv__title-item:nth-of-type(1) .mv__title-img,
+.mv__title-item:nth-of-type(4) .mv__title-img,
+.mv__title-item:nth-of-type(5) .mv__title-img {
+  width: 125px;
+  height: 125px;
 }
 
 .mv__img,
@@ -524,8 +556,7 @@ a:hover {
 
 .mv__img img {
   width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .b-bgi {
@@ -673,8 +704,7 @@ a:hover {
 
 .menu-img img {
   width: 90%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .menu__wrapper {
@@ -795,8 +825,7 @@ a:hover {
 
 .commit-img img {
   width: 90%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 @media screen and (max-width: 767px) {
   .commit-img img {
@@ -834,8 +863,7 @@ a:hover {
   max-width: 55%; /* 例: 画像の最大幅を100pxに設定 */
   width: 100%;
   height: auto; /* 高さを自動調整して、アスペクト比を保持します。 */
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .commit__text-no {
@@ -890,3 +918,5 @@ a:hover {
     margin-top: 1.5625rem;
   }
 }
+
+/*# sourceMappingURL=style.css.map */
