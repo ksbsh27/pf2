@@ -57,6 +57,37 @@ const textTween = TweenMax.fromTo(
   }
 );
 
+const imgSlideTween = gsap.timeline();
+  imgSlideTween.fromTo(".menu-imgBg",
+  1.5,
+  {
+    x: "120%",
+    opacity: .4,
+  },
+  {
+    x:"0%",
+    opacity: .4,
+    ease: Power2.easeOut,
+  }
+).fromTo(
+  ".menu-img img",
+  2,
+  {
+    scale: 1.1,
+    opacity: 0,
+  },
+  {
+    scale: 1,
+    opacity: 1,
+    ease: Power2.easeOut,
+  }
+  ).to(
+    ".menu-imgBg",
+     {
+      opacity:0
+    },"-=2"
+);
+
 // 画像に対するブラー効果は提案されていないため、imgTweenはそのままです
 const imgTween = TweenMax.to(".about__img", 1, {
   y: "-20px",
@@ -85,6 +116,13 @@ new ScrollMagic.Scene({
   reverse: false,
 })
   .setTween(imgTween.delay(1))
+  .addTo(controller);
+
+new ScrollMagic.Scene({
+  triggerElement: ".menu",
+  reverse: false,
+})
+  .setTween(imgSlideTween)
   .addTo(controller);
 
 // menu

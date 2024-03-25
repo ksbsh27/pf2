@@ -628,7 +628,6 @@ a:hover {
   background-size: auto; /* 元の画像サイズを保持 */
   background-position: center;
   background-repeat: repeat; /* 画像を繰り返して表示 */
-  overflow: hidden;
 }
 
 .about {
@@ -768,11 +767,29 @@ a:hover {
 .menu-img {
   display: flex;
   justify-content: flex-end; /* 要素を右寄せにして左に自動のマージンを作る */
+  position: relative;
+  z-index: -1;
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
 }
 
 .menu-img img {
   width: 90%;
+  height: 500px;
   object-fit: cover;
+  opacity: 0;
+  transform-origin: center;
+  overflow: hidden;
+}
+
+.menu-imgBg {
+  position: absolute;
+  width: 90%;
+  height: 500px;
+  background-color: #010101;
+  z-index: 99;
+  overflow: hidden;
 }
 
 .menu__wrapper {
