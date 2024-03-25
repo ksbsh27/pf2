@@ -775,8 +775,8 @@ a:hover {
   overflow: hidden;
 }
 
-.menu-img img {
-  width: 90%;
+.menu-img div img {
+  width: 90vw;
   height: 500px;
   object-fit: cover;
   opacity: 0;

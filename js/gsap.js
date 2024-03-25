@@ -69,7 +69,7 @@ const imgSlideTween = gsap.timeline();
     ease: Power2.easeOut,
   }
 ).fromTo(
-  ".menu-img img",
+  ".menu-img div img",
   2,
   {
     scale: 1.1,
