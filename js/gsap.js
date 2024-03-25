@@ -6,7 +6,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const el_3 = document.querySelector(".mv__title-item:nth-of-type(3) .mv__title-img");
   const el_4 = document.querySelector(".mv__title-item:nth-of-type(4) .mv__title-img");
   const el_5 = document.querySelector(".mv__title-item:nth-of-type(5) .mv__title-img");
-  const el_bg = document.querySelector(".mv.mv-black::after");
+  const el_bg = document.querySelector(".mv");
   const el_header = document.querySelector(".layout-header");
   const el_fixed = document.querySelector(".b-bgi");
 
