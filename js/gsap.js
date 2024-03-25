@@ -19,7 +19,6 @@ window.addEventListener("DOMContentLoaded", () => {
     .add(() => {
       el_bg.classList.remove("mv-black");
     }, "+=2") // 背景クラスの変更タイミングも調整
-    // .to(el_bg, { color: "#000", duration: 2, ease: "power1.inOut" }, "+=2") // test
     .to(el_header, { opacity: 1, duration: 1, ease: "power1.inOut" }, "-=0.2") // ヘッダーの透明度変化を滑らかに
     .to(el_fixed, { overflow: "hidden visible", duration: 1, ease: "power1.inOut" }, "-=1"); // 固定要素のオーバーフロー変更を滑らかに
 
