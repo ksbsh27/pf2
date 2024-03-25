@@ -1,64 +1,27 @@
 window.addEventListener("DOMContentLoaded", () => {
   const tl = gsap.timeline();
   // 要素の選択はそのまま
-  const e1_1 = document.querySelector(
-    ".mv__title-item:nth-of-type(1) .mv__title-img"
-  );
-  const e1_2 = document.querySelector(
-    ".mv__title-item:nth-of-type(2) .mv__title-img"
-  );
-  const e1_3 = document.querySelector(
-    ".mv__title-item:nth-of-type(3) .mv__title-img"
-  );
-  const e1_4 = document.querySelector(
-    ".mv__title-item:nth-of-type(4) .mv__title-img"
-  );
-  const e1_5 = document.querySelector(
-    ".mv__title-item:nth-of-type(5) .mv__title-img"
-  );
-  const e1_bg = document.querySelector(".mv");
-  const e1_header = document.querySelector(".layout-header");
-  const e1_fixed = document.querySelector(".b-bgi");
+  const el_1 = document.querySelector(".mv__title-item:nth-of-type(1) .mv__title-img");
+  const el_2 = document.querySelector(".mv__title-item:nth-of-type(2) .mv__title-img");
+  const el_3 = document.querySelector(".mv__title-item:nth-of-type(3) .mv__title-img");
+  const el_4 = document.querySelector(".mv__title-item:nth-of-type(4) .mv__title-img");
+  const el_5 = document.querySelector(".mv__title-item:nth-of-type(5) .mv__title-img");
+  const el_bg = document.querySelector(".mv.mv-black::after");
+  const el_header = document.querySelector(".layout-header");
+  const el_fixed = document.querySelector(".b-bgi");
 
   // アニメーションの開始状態にblurを適用し、fromToメソッドで滑らかに変化させる
-  tl.fromTo(
-    e1_1,
-    { filter: "blur(10px)", opacity: 0 },
-    { filter: "blur(0)", opacity: 1, duration: 0.6, ease: "power1.out" }
-  )
-    .fromTo(
-      e1_2,
-      { filter: "blur(10px)", opacity: 0 },
-      { filter: "blur(0)", opacity: 1, duration: 1.0, ease: "power1.out" },
-      "-=0.5"
-    )
-    .fromTo(
-      e1_3,
-      { filter: "blur(10px)", opacity: 0 },
-      { filter: "blur(0)", opacity: 1, duration: 1.0, ease: "power1.out" },
-      "-=0.5"
-    )
-    .fromTo(
-      e1_4,
-      { filter: "blur(10px)", opacity: 0 },
-      { filter: "blur(0)", opacity: 1, duration: 0.6, ease: "power1.out" },
-      "-=0.5"
-    )
-    .fromTo(
-      e1_5,
-      { filter: "blur(10px)", opacity: 0 },
-      { filter: "blur(0)", opacity: 1, duration: 0.6, ease: "power1.out" },
-      "-=0.5"
-    )
+  tl.fromTo(el_1, { filter: "blur(40px)", opacity: 0 }, { filter: "blur(0px)", opacity: 1, duration: 1, ease: "power1.out" })
+    .fromTo(el_2, { filter: "blur(40px)", opacity: 0 }, { filter: "blur(0px)", opacity: 1, duration: 1, ease: "power1.out" }, "-=0.5")
+    .fromTo(el_3, { filter: "blur(40px)", opacity: 0 }, { filter: "blur(0px)", opacity: 1, duration: 1, ease: "power1.out" }, "-=0.5")
+    .fromTo(el_4, { filter: "blur(40px)", opacity: 0 }, { filter: "blur(0px)", opacity: 1, duration: 1, ease: "power1.out" }, "-=0.5")
+    .fromTo(el_5, { filter: "blur(40px)", opacity: 0 }, { filter: "blur(0px)", opacity: 1, duration: 1.5, ease: "power1.out" }, "-=0.5")
     .add(() => {
-      e1_bg.classList.remove("mv-black");
-    }, "-=0.5") // 背景クラスの変更タイミングも調整
-    .to(e1_header, { opacity: 1, duration: 1, ease: "power1.inOut" }, "-=0.2") // ヘッダーの透明度変化を滑らかに
-    .to(
-      e1_fixed,
-      { overflow: "visible", duration: 1, ease: "power1.inOut" },
-      "-=1"
-    ); // 固定要素のオーバーフロー変更を滑らかに
+      el_bg.classList.remove("mv-black");
+    }, "+=2") // 背景クラスの変更タイミングも調整
+    // .to(el_bg, { color: "#000", duration: 2, ease: "power1.inOut" }, "+=2") // test
+    .to(el_header, { opacity: 1, duration: 1, ease: "power1.inOut" }, "-=0.2") // ヘッダーの透明度変化を滑らかに
+    .to(el_fixed, { overflow: "hidden visible", duration: 1, ease: "power1.inOut" }, "-=1"); // 固定要素のオーバーフロー変更を滑らかに
 
   return tl;
 });
@@ -170,11 +133,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var controller = new ScrollMagic.Controller();
 
   // 各コミットリスト項目に対する処理
-  var commitElements = [
-    ".commit__list-fade01",
-    ".commit__list-fade02",
-    ".commit__list-fade03",
-  ];
+  var commitElements = [".commit__list-fade01", ".commit__list-fade02", ".commit__list-fade03"];
 
   commitElements.forEach(function (element, index) {
     // 画像のズームアウトアニメーション
