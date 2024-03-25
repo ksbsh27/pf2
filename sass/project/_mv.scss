@@ -50,6 +50,11 @@
     grid-template-rows: repeat(3, 1fr);
     column-gap: 24px;
     row-gap: 32px;
+    @include mq("md"){
+        grid-template-columns: 1fr 80px 36px 1fr;
+    column-gap: 0px;
+    row-gap: 18px;
+    }
 }
 
 .mv__title-item:nth-of-type(1){
@@ -96,6 +101,10 @@
 .mv__title-item:nth-of-type(3) .mv__title-img{
     width: 60px;
     height: 60px;
+    @include mq("md"){
+        width: 30px;
+        height: 30px;
+    }
 }
 
 .mv__title-item:nth-of-type(1) .mv__title-img,
@@ -103,6 +112,10 @@
 .mv__title-item:nth-of-type(5) .mv__title-img{
     width: 125px;
     height: 125px;
+    @include mq("md"){
+        width: 60px;
+        height: 60px;
+    }
 }
 
 // .mv__main-title {

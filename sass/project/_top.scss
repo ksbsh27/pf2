@@ -1,7 +1,7 @@
 @use "../foundation" as *;
 
 .b-bgi {
-  background-image: url("../../images/common/bgi.png"); /* 背景画像を指定 */
+  background-image: url("../images/common/bgi.png"); /* 背景画像を指定 */
   background-size: auto; /* 元の画像サイズを保持 */
   background-position: center;
   background-repeat: repeat; /* 画像を繰り返して表示 */
@@ -21,10 +21,11 @@
 }
 
 .about__img {
+  opacity: 0;
   position: absolute;
   width: 45%;
   height: 88%;
-  background-image: url("../../images/common/about-img.png");
+  background-image: url("../images/common/about-img.png");
   background-size: cover; /* コンテナを覆うように調整 */
   background-position: center;
   background-repeat: no-repeat;
@@ -48,6 +49,7 @@
 }
 
 .about__text {
+  opacity: 0;
   position: relative;
   color: $white;
   font-weight: $regular;
@@ -70,6 +72,7 @@
 }
 
 .about__title {
+  opacity: 0;
   position: absolute;
   color: $white;
   font-weight: $regular;
@@ -102,7 +105,7 @@
   position: relative;
   color: $white;
   @include mq("md") {
-    margin-top: 240px;
+    margin-top: 160px;
   }
 }
 
@@ -118,7 +121,7 @@
     top: -15%;
   }
   @include mq("md") {
-    top: -4%;
+    top: -6%;
   }
 }
 
@@ -149,6 +152,7 @@
 }
 
 .menu__img2 {
+  // opacity: 0;
   max-width: 580px;
   flex: 0 1 50%; /* 成長しないが、必要に応じて縮小する。基本的には親の50%の幅 */
   @include mq("md") {
@@ -166,6 +170,7 @@
 }
 
 .menu__text-items {
+  // opacity: 0;
   flex: 1; /* 残りのスペースを使って拡張する。マージンを調整してもよい */
   margin-left: 60px; /* 必要に応じて調整 */
   padding-top: 55px;
@@ -208,7 +213,7 @@
   position: relative;
   color: $white;
   @include mq("md") {
-    margin-top: 130px;
+    margin-top: 180px;
   }
 }
 
@@ -218,7 +223,7 @@
   right: 20%;
 
   @include mq("xl1") {
-    top: -20%;
+    // top: -3%;
   }
   @include mq("md") {
     top: -5%;
@@ -360,6 +365,7 @@
   position: absolute; /* 親要素に対して絶対位置指定 */
   top: 57%;
   left: 15%;
+  z-index: 1;
   @include mq("md") {
     width: 100px; /* 画像の幅 */
     left: 150%;
@@ -374,6 +380,7 @@
   position: absolute; /* 親要素に対して絶対位置指定 */
   top: 57%;
   left: -40%;
+  z-index: 1;
   @include mq("md") {
     width: 100px; /* 画像の幅 */
     left: 63%;
@@ -428,6 +435,9 @@
 .rv {
   margin-top: 170px;
   color: $white;
+  @include mq("md"){
+    margin-top: 130px;
+  }
 }
 
 .rv__text {
@@ -450,6 +460,7 @@
   justify-content: center;
   align-items: center;
   @include mq(md){
+    flex-direction: column; // これを追加
   }
 }
 
@@ -463,13 +474,14 @@
     margin-left: 50px;
   position: relative;
   @include mq(md){
-  width: 100%;
+  margin-left: prem(40);
+  margin-right: prem(40);
+  // width: 100%;
   }
 }
 
 .works-list__item-img img {
   width: 100%;
-  // aspect-ratio: 550/420;
   object-fit: cover;
 }
 
@@ -477,14 +489,15 @@
   // margin-top: prem(20);
   font-size: prem(25);
   line-height: 1.44;
-  // letter-spacing: 0.05em;
-  margin-left: prem(80);
+    margin-left: prem(60);
+  margin-right: prem(20);
   max-width: prem(600);
-  width: 100%;
   @include mq(md){
       margin-top: 0;
       font-size: prem(19);
       line-height: 1.474;
+      margin-left: prem(40);
+      margin-right: prem(40);
   }
 }
 
@@ -492,11 +505,39 @@
   position: absolute;
   top: -11%;
   left: 14%;
+  @include mq("md"){
+    top: -19%;
+    left: 0%;
+  }
 }
 
 .rv__title.section-title__main {
   padding: 10px 0 44px;
   @include mq("xl"){
     font-size: prem(35);
+  }
+  @include mq("md"){
+    padding: 10px 0 80px;
+  }
+}
+
+.rv__title-sub.section-title__sub {
+  @include mq("md"){
+padding-top: 10px;
+  }
+}
+
+.rv__btn-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+  @include mq("md"){
+    margin-top: 60px;
+      }
+}
+
+.rv__text-wrap {
+  @include mq("md"){
+margin-top: 25px;
   }
 }
