@@ -111,18 +111,20 @@
 
 .menu__title.title__wrapper {
   position: absolute;
-  top: -10%;
+  top: -5%;
   left: 17%;
+  // opacity: 0;
   @include mq("xl2") {
-    top: -12%;
     left: 13%;
-  }
-  @include mq("xl1") {
-    top: -15%;
   }
   @include mq("md") {
     top: -6%;
   }
+}
+
+.section-title__main span,
+.section-title__sub span {
+  opacity: 0;
 }
 
 .menu-img {
@@ -131,23 +133,38 @@
   position: relative;
   z-index: -1;
   width: 100%;
-  height: 500px;
+  height: 780px;
   overflow: hidden;
+  @include mq("xl2") {
+    height: 640px;
+  }
+  @include mq("xl1") {
+    height: 540px;
+  }
+  @include mq("xl") {
+    height: 480px;
+  }
+  @include mq("lg") {
+    height: 400px;
+  }
+  @include mq("md") {
+    height: 230px;
+  }
 }
 
 .menu-img div img {
-  width: 90vw;
-  height: 500px;
-  object-fit: cover;
+  max-width: 90vw; /* 画像の最大幅を90vwに設定 */
+  height: inherit; /* 画像の高さを780pxに固定 */
+  object-fit: contain;
   opacity: 0;
   transform-origin: center;
   overflow: hidden;
 }
 
-.menu-imgBg{
+.menu-imgBg {
   position: absolute;
-  width: 90%;
-  height: 500px;
+  width: 90vw;
+  height: inherit;
   background-color: #010101;
   z-index: 99;
   overflow: hidden;
@@ -231,7 +248,7 @@
   position: relative;
   color: $white;
   @include mq("md") {
-    margin-top: 180px;
+    margin-top: 110px;
   }
 }
 
@@ -239,12 +256,12 @@
   position: absolute;
   top: -3%;
   right: 20%;
-
+  z-index: 1;
   @include mq("xl1") {
     // top: -3%;
   }
   @include mq("md") {
-    top: -5%;
+    top: -2%;
     right: 6%;
   }
 }
@@ -259,13 +276,36 @@
 .commit-img {
   display: flex;
   justify-content: flex-start; /* 要素を右寄せにして左に自動のマージンを作る */
+  position: relative;
+  width: 100%;
+  height: 780px;
+  @include mq("xl2") {
+    height: 640px;
+  }
+  @include mq("xl1") {
+    height: 540px;
+  }
+  @include mq("xl") {
+    height: 480px;
+  }
+  @include mq("lg") {
+    height: 400px;
+  }
+  @include mq("md") {
+    height: 230px;
+  }
 }
 
 .commit-img img {
-  width: 90%;
+  max-width: 90vw;
   object-fit: cover;
+  height: inherit; /* 画像の高さを780pxに固定 */
+  object-fit: contain;
+  opacity: 0;
+  transform-origin: center;
+  overflow: hidden;
   @include mq("md") {
-    width: 95%;
+    width: 95vw;
   }
 }
 
@@ -384,6 +424,8 @@
   top: 57%;
   left: 15%;
   z-index: 1;
+  transform: scaleX(0); /* 最初は線を縮小して見えなくする */
+  transform-origin: left; /* 縮小・拡大の原点を下側に設定 */
   @include mq("md") {
     width: 100px; /* 画像の幅 */
     left: 150%;
@@ -399,10 +441,21 @@
   top: 57%;
   left: -40%;
   z-index: 1;
+  transform: scaleX(0); /* 最初は線を縮小して見えなくする */
+  transform-origin: right; /* 縮小・拡大の原点を下側に設定 */
   @include mq("md") {
     width: 100px; /* 画像の幅 */
     left: 63%;
   }
+}
+
+.commit__text-no.active::before {
+  transform: scaleX(1);
+  transition: 2s;
+}
+.commit__text-no.commit__text-no2.active::before {
+  transform: scaleX(1);
+  transition: 2s;
 }
 
 .commit__text-large {
@@ -486,8 +539,11 @@
 
 .works-list__item-img {
   max-width: prem(600);
+  height: auto;
   margin-left: 50px;
+  // overflow: hidden;
   position: relative;
+  z-index: -1;
   @include mq(md) {
     margin-left: prem(40);
     margin-right: prem(40);
@@ -495,9 +551,28 @@
   }
 }
 
-.works-list__item-img img {
-  width: 100%;
-  object-fit: cover;
+.rv__img-wrap {
+  opacity: 0;
+}
+
+.works-list__item-img div img {
+  max-width: prem(600); /* 画像の最大幅を90vwに設定 */
+  height: inherit; /* 画像の高さを780pxに固定 */
+  object-fit: contain;
+  // opacity: 0;
+  transform-origin: center;
+  overflow: hidden;
+}
+
+.rv-imgBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: prem(600);
+  height: inherit;
+  background-color: #010101;
+  z-index: 99;
+  overflow: hidden;
 }
 
 .works-list__item-text {
@@ -552,6 +627,7 @@
 }
 
 .rv__text-wrap {
+  opacity: 0;
   @include mq("md") {
     margin-top: 25px;
   }
